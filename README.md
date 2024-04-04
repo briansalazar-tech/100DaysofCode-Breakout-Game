@@ -1,2 +1,16 @@
-# 100DaysofCode-Breakout-Game
+# 100 Days of Code Breakout Game
 Day 87 of the 100 Days of Code Course. The goal for the day was to re-create the Breakout video game.
+
+For my take on the game, I created five separate files to control the functionality of the program.
+
+The Ball.py file controls the creation of the ball class. Along with the creation of the ball object, the movement of the ball is managed in this file including when the ball bounces off of walls, bricks as well as the paddle. Originally I was going to use the bounce method that was covered during the Pong lessons of the course by using x & y coordinates of 10 and -10 and inversing them when contact is made. However, I did want to add the capability to produce obtuse and acute angles when the ball makes contact with the paddle. By not using that method to bounce the ball, I had to do some additional playing around to get the ball to bounce in the desired fashion. This includes setting the turtle's header and modifying the xcor or ycor values to back up when contact is made. I found that this was needed because if the ball did not scoot back, it would spaz out when the walls or the paddle were hit. The Ball bouncing screenshot demonstrates how the ball functions when it hits a wall, brick, and the paddle.  Additionally, the reset method resets the ball to be directly above the paddle when that method is called. 
+
+The bricks.py file is used to render the bricks into the desired position. I chose to create three separate classes for the bricks since the bricks would be created in three separate sizes (small, medium, and large). In the bricks.py file, I also created the rows that would make up the game. Rows 1-3 would be used for level 1. With each additional level, an additional row would be added in main.py. To generate the rows on the screen, the row functions would return a list of bricks to be rendered when the function is called. 
+
+Paddle.py controls the function of the paddle by creating the object, controlling it's movement as well as resetting the paddles position.
+
+Scoreboard.py manages the scoreboard functionality including keeping track of what level the player is on, the number of bricks destroyed, and the number of lives that the user has. Additionally, the Walls class is used to draw the gray border on the edge of the screen when the game is started.
+
+Main.py ties everything together. While the game is on, the scoreboard keeps track of the functionality described in the previous paragraph. The "bricks destroyed" and level trackers are used to keep track of what level the player is on and render the appropriate amount of rows depending on the level. When the player has 0 lives, the game ends as depicted in the screenshot. Additionally, if the user destroys all of the bricks in the game, the game ends but with the player winning. I attached a couple of screenshots of the gameplay to demonstrate the game's functionality.
+
+Note: As more bricks are rendered on the screen, the ball's movement slows down. I tried a few things including changing the turtle's speed and clearing the screen but those did not have desirable results. On level five, there are 108 bricks that are rendered and on the screen, and on level six, there are 166 bricks. The only thing I noticed that improved the ball's movement speed was when the bricks were hit and moved off-screen (moving their position to 1,000, 1,000).
